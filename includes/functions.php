@@ -1,42 +1,48 @@
 <?php
-// Start session if not already started
-if (session_status() == PHP_SESSION_NONE){
+//start session if not already started
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 // Redirect to another page
-function redirect($url) {
-    header('Location: $url');
+function redirect($url)
+{
+    header("Location: " . $url);
     exit();
 }
 
-// Checked if user is logged in
-function isLoggedIn() {
+// Check if user is logged in
+function isLoggedIn()
+{
     return isset($_SESSION['user_id']);
 }
 
-// Force user to login if not logged in
-function requireLogIn() {
+// force user to login if not logged in
+function requireLogin()
+{
     if (!isLoggedIn()) {
         redirect('../auth/login.php');
     }
 }
 
-// Clean user input (basic protection)
-function cleanInput($data) {
+// clean user input (basic protection)
+function cleanInput($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
 
-// Show success or error message
-function setMessage($message, $type = 'success'){
+// show success or error message
+function setMessage($message, $type = 'success')
+{
     $_SESSION['message'] = $message;
     $_SESSION['message_type'] = $type;
 }
 
-function showMessage() {
+function showMessage()
+{
     if (isset($_SESSION['message'])) {
         $message = $_SESSION['message'];
         $type = $_SESSION['message_type'];
@@ -45,4 +51,3 @@ function showMessage() {
         unset($_SESSION['message_type']);
     }
 }
-?>

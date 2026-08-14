@@ -1,19 +1,21 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . './functions.phpt'
-
+require_once __DIR__ . '/functions.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <title>INTERNSHIP MANAGEMENT SYSTEM</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expan-lg navbar-dark bg-primary mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div class="container">
             <a class="navbar-brand" href="../dashboard.php">Internship Management System</a>
             <?php if (isLoggedIn()): ?>
@@ -22,10 +24,11 @@ require_once __DIR__ . './functions.phpt'
                     <a class="nav-link" href="../interns/index.php">Interns</a>
                     <a class="nav-link" href="../projects/index.php">Projects</a>
                     <a class="nav-link" href="../attendance/index.php">Attendance</a>
+                    <a class="nav-link" href="../auth/logout.php">Logout</a>
+
 
                 </div>
-            <?php endif?>
+            <?php endif ?>
         </div>
     </nav>
-    <div class="container ">
-
+    <div class="container">
